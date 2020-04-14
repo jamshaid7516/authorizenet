@@ -1,0 +1,178 @@
+{
+ "allow_import": 1,
+ "autoname": "field:order_id",
+ "creation": "2017-03-02 12:53:46.238894",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "transaction_id",
+  "cb1",
+  "status",
+  "error_sb",
+  "error_msg",
+  "section_break_2",
+  "log",
+  "section_break_6",
+  "reference_doctype",
+  "column_break_8",
+  "reference_docname",
+  "details",
+  "amount",
+  "column_break_14",
+  "currency",
+  "column_break_16",
+  "order_id",
+  "section_break_18",
+  "title",
+  "description",
+  "section_break_21",
+  "payer_email",
+  "column_break_23",
+  "payer_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "transaction_id",
+   "fieldtype": "Data",
+   "label": "Transaction ID"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Issued",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Issued\nAuthorized\nCaptured\nDeclined\nError",
+   "reqd": 1
+  },
+  {
+   "fieldname": "error_sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "error_msg",
+   "fieldtype": "Text",
+   "label": "Error Message"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Log"
+  },
+  {
+   "fieldname": "log",
+   "fieldtype": "Table",
+   "options": "AuthorizeNet Request Log"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Doc Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Doc Name",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "order_id",
+   "fieldtype": "Data",
+   "label": "Order ID",
+   "unique": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payer_email",
+   "fieldtype": "Data",
+   "label": "Payer Email"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payer_name",
+   "fieldtype": "Data",
+   "label": "Payer Name"
+  }
+ ],
+ "modified": "2019-12-19 07:51:36.075258",
+ "modified_by": "Administrator",
+ "module": "authorizenet",
+ "name": "AuthorizeNet Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

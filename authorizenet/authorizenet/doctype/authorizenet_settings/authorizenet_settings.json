@@ -1,0 +1,83 @@
+{
+ "creation": "2017-02-21 10:22:30.417960",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_creds",
+  "api_login_id",
+  "cb_creds",
+  "api_transaction_key",
+  "sb_opts",
+  "use_sandbox",
+  "cb_opts",
+  "log_level"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_creds",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "api_login_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "API Login ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_creds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_transaction_key",
+   "fieldtype": "Password",
+   "label": "API Transaction Key"
+  },
+  {
+   "fieldname": "sb_opts",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "use_sandbox",
+   "fieldtype": "Check",
+   "label": "Use Sandbox"
+  },
+  {
+   "fieldname": "cb_opts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Info",
+   "description": "<strong style=\"color: red;\">WARNING: Never set the log level at \"Debug\" on production servers, credit card information will be stored on database(Big No No!)</strong>",
+   "fieldname": "log_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Log Level",
+   "options": "None\nInfo\nError\nDebug",
+   "reqd": 1
+  }
+ ],
+ "issingle": 1,
+ "modified": "2019-11-07 07:07:11.657350",
+ "modified_by": "Administrator",
+ "module": "authorizenet",
+ "name": "AuthorizeNet Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

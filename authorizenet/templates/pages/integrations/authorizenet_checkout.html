@@ -1,0 +1,29 @@
+{% extends "templates/web.html" %}
+
+{% block title %} Payment {% endblock %}
+
+{%- block header -%}{% endblock %}
+
+{% block script %}
+<script>
+	{% include "templates/includes/integrations/authorizenet/form.js" %}
+	var authorizenet_gateway = new frappe.integration_service.authorizenet_gateway();
+	authorizenet_gateway.form('{{request_name}}', true);   
+</script>
+{% endblock %}
+
+{%- block page_content -%}
+<div id="authorizenet-sa-form">
+	{% include "templates/includes/integrations/authorizenet/checkout_form.html" with context %}
+	
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+	header, footer {
+		display: none;
+	}
+	{% include "templates/includes/integrations/authorizenet/css/checkout.css" %}
+</style>
+{% endblock %}

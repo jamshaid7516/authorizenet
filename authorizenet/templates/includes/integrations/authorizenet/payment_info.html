@@ -1,0 +1,54 @@
+<form id="authorizenet-payment-form" class="authorizenet-form">
+  <div class="row no-gutter">
+    <div class="col-sm-12">
+      <div class="field required">
+        <label for="authorizenet_name">Name on Card</label>
+        <input id="authorizenet_name" name="authorizenet_name" placeholder="Name on Card"/>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutter">
+    <div class="col-sm-12">
+      <div class="field required">
+        <label for="authorizenet_number">Card Number</label>
+        <input id="authorizenet_number" name="authorizenet_number" placeholder="Card Number" type="number"/>
+      </div>
+    </div>
+  </div>
+	<div class="row no-gutter">
+		<div class="col-xs-4">
+			<div class="field required">
+        <label for="authorizenet_exp_month">Exp Month</label>
+        <input id="authorizenet_exp_month" name="authorizenet_exp_month" min="01" max="12" placeholder="MM" length="2" type="number"/>
+      </div>
+		</div>
+		<div class="col-xs-4">
+			<div class="field required">
+        <label for="authorizenet_exp_year">Exp Year</label>
+        <input id="authorizenet_exp_year" name="authorizenet_exp_year" min="2012" placeholder="YYYY" length="4" type="number"/>
+      </div>
+		</div>
+		<div class="col-xs-4">
+      <div class="field required">
+        <label for="authorizenet_code">Card Code</label>
+        <input id="authorizenet_code" name="authorizenet_code" placeholder="Card Code" length="4" type="number"/>
+      </div>
+    </div>
+	</div>
+	
+  <!--<div class="row no-gutter">
+    <div class="col-sm-12">
+      <div class="field custom">
+        <label class="switch-field">
+          <div class="switch-text">Store Payment information for faster checkout.</div>
+            <div class="switch">
+              <input type="checkbox" id="authorizenet_store_payment" name="authorizenet_store_payment">
+              <div class="slider"></div>
+            </div>
+          </div>
+        </label>
+      </div>                    
+    </div>-->
+  </div>
+
+</form>

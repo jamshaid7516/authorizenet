@@ -1,0 +1,45 @@
+<div class="container-fluid authorizenet-form" id="authorizenet-page-form">
+	<div class="row nopadding">
+		<div class="col-md-6 col-md-push-6 nopadding">
+			<h2>Payment Details</h2>
+			<div class="row">
+				<div class="col-xs-12">{{ title }}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">{{ description }}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">Reference:</div>
+				<div class="col-xs-6">{{ order_id }}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">PO NO:</div>
+				<div class="col-xs-6">{{ po_no }}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">Total Amount:</div>
+				<div class="col-xs-4">{{ amount }}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12" id="authorizenet-error">   
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-md-pull-6 col-sm-6 nopadding">
+			{% include "templates/includes/integrations/authorizenet/embed.html" with context %}
+		</div>
+		<div class='authorizenet-confirming hidden'>
+			Processing...
+	  </div>
+  </div>
+	<div class="row nopadding actions">
+		<div class="col-sm-12">
+			<div class="text-center">
+				<button id="authorizenet-process-btn" class="btn btn-primary">Process Payment</button>
+				<button id="authorizenet-exit-btn" class="btn btn-danger">Exit</button> 
+			</div>
+		</div>
+	</div>
+
+</div>
+

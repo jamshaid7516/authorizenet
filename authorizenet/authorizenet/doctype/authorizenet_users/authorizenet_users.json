@@ -1,0 +1,70 @@
+{
+ "allow_import": 1,
+ "autoname": "field:contact",
+ "creation": "2017-03-06 15:38:00.577584",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "contact",
+  "cb1",
+  "authorizenet_id",
+  "sb1",
+  "stored_payments"
+ ],
+ "fields": [
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contact",
+   "options": "Customer",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "authorizenet_id",
+   "fieldtype": "Data",
+   "label": "Authorize.Net User Id"
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break",
+   "label": "Stored Payment Methods"
+  },
+  {
+   "fieldname": "stored_payments",
+   "fieldtype": "Table",
+   "label": "Stored Payments",
+   "options": "AuthorizeNet Stored Payment"
+  }
+ ],
+ "modified": "2019-11-08 08:46:24.156670",
+ "modified_by": "Administrator",
+ "module": "authorizenet",
+ "name": "AuthorizeNet Users",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "contact",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
