@@ -29,6 +29,7 @@ authorizenet/authorizenet/doctype/authorizenet_settings/__init__.py
 authorizenet/authorizenet/doctype/authorizenet_settings/authorizenet_settings.js
 authorizenet/authorizenet/doctype/authorizenet_settings/authorizenet_settings.json
 authorizenet/authorizenet/doctype/authorizenet_settings/authorizenet_settings.py
+authorizenet/authorizenet/doctype/authorizenet_settings/test_authorizenet_settings.py
 authorizenet/authorizenet/doctype/authorizenet_stored_payment/__init__.py
 authorizenet/authorizenet/doctype/authorizenet_stored_payment/authorizenet_stored_payment.json
 authorizenet/authorizenet/doctype/authorizenet_stored_payment/authorizenet_stored_payment.py
@@ -59,6 +60,7 @@ authorizenet/templates/pages/__init__.py
 authorizenet/templates/pages/integrations/__init__.py
 authorizenet/templates/pages/integrations/authorizenet_checkout.html
 authorizenet/templates/pages/integrations/authorizenet_checkout.py
+authorizenet/templates/pages/integrations/test.html
 authorizenet/tests/__init__.py
 authorizenet/tests/test_processing.py
 authorizenet/www/__init__.py
