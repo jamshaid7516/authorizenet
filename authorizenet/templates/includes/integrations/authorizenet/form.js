@@ -11,27 +11,36 @@ frappe.integration_service.authorizenet_gateway =  frappe.integration_service.au
       $('#authorizenet-exit-btn').click(function() {
         window.close();
       })
-      $('#authorizenet-process-btn').click(function() {               
-        var billing_info = base.collect_billing_info();      
+      $('#authorizenet-process-btn').click(function() {
+        var billing_info = base.collect_billing_info();
         var card_info = base.collect_card_info();
         var stored_payment_options = base.collect_stored_payment_info();
         $('#authorizenet-payment').fadeOut('fast');
         $('#authorizenet-process-btn').fadeOut('fast');
         $('#authorizenet-exit-btn').fadeOut('fast');
         base.process_card(card_info, billing_info, stored_payment_options, reference_id,
-          function(err, result) {     
+          function(err, result) {
             if ( err ) {
-							if ( display_errors && err.errors ) {
-								frappe.msgprint(err.errors.join("\n"));
-							}
+              if (display_errors && err.errors) {
+                  frappe.msgprint(err.errors.join("\n"));
+              }
               $('#authorizenet-error').text(err.error)
               $('#authorizenet-payment').fadeIn('fast');
               $('#authorizenet-process-btn').fadeIn('fast');
               $('#authorizenet-exit-btn').fadeIn('fast');
             } else {
+                frappe.call({
+                  method: "authorizenet.utils.submit_pe",
+                  args: {
+                    "payment_entry" : reference_id
+                  },
+                    async: false,
+                  callback: function () {}
+              })
               window.location.href = result.redirect_to;
+
             }
-          })  
+          })
       })
 
     })

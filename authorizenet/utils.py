@@ -301,3 +301,9 @@ def get_tax_charges(reference_doctype,reference_docname):
 			return tax
 		
 """
+
+
+@frappe.whitelist()
+def submit_pe(payment_entry):
+	pe = frappe.get_doc("Payment Entry",payment_entry)
+	pe.submit()
