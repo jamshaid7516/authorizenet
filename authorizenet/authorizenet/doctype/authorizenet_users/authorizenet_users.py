@@ -20,12 +20,12 @@ def test_user1():
     	return "ok"
 @frappe.whitelist()
 def test_user(customer_detail):
-							card_number=""	
+							card_number=""
 							card_code=""
-							expiration_month=""	
+							expiration_month=""
 							expiration_year=""
 							customer_name=""
-							customer_group=""	
+							customer_group=""
 							customer_type=""
 							email_id=""
 							authorize_id=""
@@ -146,21 +146,24 @@ def test_user(customer_detail):
 													}										
 							if(authorize_id=="0"):
 										try:
+												print("aksdakjsld")
 												if(bool(Billing)):
-															customer_info.update({"billing":Billing})
+														customer_info.update({"billing":Billing})
 												if(bool(Shipping)):
 														customer_info.update({"shipping":Shipping})
 												if(bool(credit_card)):
-															customer_info.update({"credit_card":credit_card})
+														customer_info.update({"credit_card":credit_card})
 												if(bool(bank_account)):
-															customer_info.update({"bank_account":bank_account})
+														customer_info.update({"bank_account":bank_account})
 
 												authorize.Configuration.configure(							
 														authorize.Environment.TEST if(if_sandbox)  else authorize.Environment.PRODUCTION,
 														api_login_id,
 														api_transaction_key   
 												)  
-												result = authorize.Customer.create(customer_info) 
+												result = authorize.Customer.create(customer_info)
+												print("RESUUUUUUULT")
+												print(result)
 												customer={
 														"customer_id":result.customer_id,
 														"status":"Completed",
@@ -172,8 +175,10 @@ def test_user(customer_detail):
 												if(result.address_ids):
 													customer["shipping_id"]=result.address_ids[0]
 												request.status='Completed'
-												return customer               
+												return customer
 										except AuthorizeInvalidError as iex:
+												print("aksdakjsld1111")
+
 												request.log_action(frappe.get_traceback(), "Error")
 												request.status = "Error Insert"
 												if iex.children and len(iex.children) > 0:
@@ -185,6 +190,8 @@ def test_user(customer_detail):
 															request.error_msg = error_msg
 												return request      
 										except AuthorizeResponseError as ex:
+												print("aksdakjsld22222")
+
 												# log authorizenet server response errors
 												result = ex.full_response
 												request.log_action(json.dumps(result), "Debug")
@@ -194,6 +201,8 @@ def test_user(customer_detail):
 												redirect_message = str(ex)
 												return request       
 										except Exception as ex:
+												print("aksdakjsld3333")
+
 												# any other errors
 												request.log_action(frappe.get_traceback(), "Error")
 												request.status = "Error insert"

@@ -1,0 +1,35 @@
+{
+ "creation": "2020-05-03 19:30:43.969433",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "category",
+  "count"
+ ],
+ "fields": [
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category"
+  },
+  {
+   "fieldname": "count",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Count"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-05-03 19:44:01.069024",
+ "modified_by": "Administrator",
+ "module": "authorizenet",
+ "name": "Item Group Count",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
