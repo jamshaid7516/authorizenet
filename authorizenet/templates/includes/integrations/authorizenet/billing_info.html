@@ -1,9 +1,11 @@
 <div id="authorizenet-billing-form" class="authorizenet-form">
-  <div class="row no-gutter">
+
+    <div class="row no-gutter">
     <div class="col-sm-12">
       <div class="field required">
         <label for="authorizenet_bill_line1">Address 1</label>
-        <input id="authorizenet_bill_line1" name="authorizenet_bill_line1" placeholder="Address 1" data-type="address_1"/>
+        <input list="places1" id="authorizenet_bill_line1" name="authorizenet_bill_line1" placeholder="Address 1" data-type="address_1"/>
+        <datalist id="places1"></datalist>
       </div>
     </div>
   </div>
@@ -11,7 +13,9 @@
     <div class="col-sm-12">
       <div class="field">
         <label for="authorizenet_bill_line2">Address 2</label>
-        <input id="authorizenet_bill_line2" name="authorizenet_bill_line2" placeholder="Address 2" data-type="address_2"/>
+        <input list="places2" id="authorizenet_bill_line2" name="authorizenet_bill_line2" placeholder="Address 2" data-type="address_2"/>
+          <datalist id="places2"></datalist>
+
       </div>
     </div>
   </div>
