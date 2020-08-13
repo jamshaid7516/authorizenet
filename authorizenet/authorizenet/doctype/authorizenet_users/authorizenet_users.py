@@ -29,6 +29,8 @@ def test_user(customer_detail):
 							customer_type=""
 							email_id=""
 							authorize_id=""
+							payment_id = ""
+							shipping_id = ""
 							customer_info=""
 							account_type=""
 							routing_number=""
@@ -47,9 +49,12 @@ def test_user(customer_detail):
 							log_level=frappe.get_value("Authorizenet Settings","Authorizenet Settings", "log_level")
 							request.max_log_level(log_level) 							
 							i= json.loads(customer_detail)
-							authorize_id=i['customer_id']
-							payment_id=i['payment_id']
-							shipping_id=i['shipping_id']
+							if "customer_id" in i:
+								authorize_id=i['customer_id']
+							if "payment_id" in i:
+								payment_id=i['payment_id']
+							if "shipping_id" in i:
+								shipping_id=i['shipping_id']
 							addr_list={}
 							Shipping={}
 							Billing={}
@@ -160,7 +165,7 @@ def test_user(customer_detail):
 														authorize.Environment.TEST if(if_sandbox)  else authorize.Environment.PRODUCTION,
 														api_login_id,
 														api_transaction_key   
-												)  
+												)
 												result = authorize.Customer.create(customer_info)
 												print("RESUUUUUUULT")
 												print(result)
