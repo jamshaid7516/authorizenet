@@ -29,6 +29,7 @@
   "description",
   "section_break_21",
   "payer_email",
+  "contact",
   "column_break_23",
   "payer_name"
  ],
@@ -154,9 +155,15 @@
    "fieldname": "payer_name",
    "fieldtype": "Data",
    "label": "Payer Name"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
   }
  ],
- "modified": "2019-12-19 07:51:36.075258",
+ "modified": "2020-08-25 00:04:36.860504",
  "modified_by": "Administrator",
  "module": "authorizenet",
  "name": "AuthorizeNet Request",
