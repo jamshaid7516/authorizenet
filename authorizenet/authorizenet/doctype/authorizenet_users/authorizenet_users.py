@@ -183,6 +183,7 @@ def test_user(customer_detail):
 												return customer
 										except AuthorizeInvalidError as iex:
 												print("aksdakjsld1111")
+												frappe.log_error(frappe.get_traceback(), "AuthorizeInvalidError 000")
 
 												request.log_action(frappe.get_traceback(), "Error")
 												request.status = "Error Insert"
@@ -196,6 +197,7 @@ def test_user(customer_detail):
 												return request      
 										except AuthorizeResponseError as ex:
 												print("aksdakjsld22222")
+												frappe.log_error(frappe.get_traceback(), "AuthorizeResponseError 000")
 
 												# log authorizenet server response errors
 												result = ex.full_response
@@ -207,6 +209,7 @@ def test_user(customer_detail):
 												return request       
 										except Exception as ex:
 												print("aksdakjsld3333")
+												frappe.log_error(frappe.get_traceback(), "Exception 000")
 
 												# any other errors
 												request.log_action(frappe.get_traceback(), "Error")
@@ -251,6 +254,7 @@ def test_user(customer_detail):
 															customer["shipping_id"]=result_shipping.address_id  
 													return customer   
 											except AuthorizeInvalidError as iex:
+												frappe.log_error(frappe.get_traceback(), "AuthorizeInvalidError")
 												request.log_action(frappe.get_traceback(), "Error")
 												request.status = "Error update"
 												if iex.children and len(iex.children) > 0:
@@ -261,7 +265,7 @@ def test_user(customer_detail):
 															error_msg = "\n".join(errors)
 															request.error_msg = error_msg
 											except AuthorizeResponseError as ex:
-													# log authorizenet server response errors
+													frappe.log_error(frappe.get_traceback(),"AuthorizeResponseError")  # log authorizenet server response errors
 													result = ex.full_response
 													request.log_action(json.dumps(result), "Debug")
 													request.log_action(str(ex), "Error")
@@ -270,6 +274,8 @@ def test_user(customer_detail):
 													redirect_message = str(ex)
 													return request
 											except Exception as ex:
+													frappe.log_error(frappe.get_traceback(),"Exception")  # log authorizenet server response errors
+
 													# any other errors
 													request.log_action(frappe.get_traceback(), "Error")
 													request.status = "Error"
