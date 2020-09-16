@@ -289,7 +289,7 @@ class AuthorizeNetSettings(Document):
 							})  
 						authnet_user=frappe.new_doc("AuthorizeNet Users") 
 						authnet_user.authorizenet_id=customer_result.customer_id
-						authnet_user.contact=request.get("contact")
+						authnet_user.contact=request.get("payer_name")
 						authnet_user.email=billing.get("auth_email")      
 						authorize_payment_id=customer_result.payment_ids[0]
 						
