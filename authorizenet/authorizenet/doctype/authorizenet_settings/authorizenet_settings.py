@@ -294,8 +294,14 @@ class AuthorizeNetSettings(Document):
 						authnet_user.email=billing.get("auth_email")      
 						authorize_payment_id=customer_result.payment_ids[0]
 						
-					else:	
-							card_result = authorize.CreditCard.create(authnet_user.get("authorizenet_id"), card_store_info)				
+					else:
+							print("AUTHORIIIIIZE NET iDDDDDDDDDDDDd")
+							print(authnet_user)
+							print(authnet_user.get("authorizenet_id"))
+							print(card_store_info)
+							print("AUTHORIIIIIZE NET iDDDDDDDDDDDDd")
+
+							card_result = authorize.CreditCard.create(authnet_user.get("authorizenet_id"), card_store_info)
 							authorize_payment_id=card_result.payment_id	      
 					authorizenet_data.update({
 						"customer_id":authnet_user.get("authorizenet_id"),
