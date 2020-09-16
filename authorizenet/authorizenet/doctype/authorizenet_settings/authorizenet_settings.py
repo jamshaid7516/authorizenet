@@ -374,6 +374,7 @@ class AuthorizeNetSettings(Document):
 			
 		except AuthorizeInvalidError as iex:
 			# log validation errors
+			frappe.log_error(frappe.get_traceback(), "AuthorizeInvalidError")
 			request.log_action(frappe.get_traceback(), "Error")
 			request.status = "Error"
 			request.transaction_id="0"            
@@ -398,6 +399,8 @@ class AuthorizeNetSettings(Document):
 			#redirect_message=error_msg
 			#redirect_to='Error AuthorizeInvalidError'  			
 		except AuthorizeResponseError as ex:
+			frappe.log_error(frappe.get_traceback(), "AuthorizeResponseError")
+
 			# log authorizenet server response errors
 			result = ex.full_response
 			request.log_action(json.dumps(result), "Debug")
@@ -416,6 +419,8 @@ class AuthorizeNetSettings(Document):
 			#redirect_message = str(ex)
 			#redirect_to='Error AuthorizeResponseError'
 		except Exception as ex:
+			frappe.log_error(frappe.get_traceback(), "Exception")
+
 			#log(frappe.get_traceback())
 			# any other errors
 			request.log_action(frappe.get_traceback(), "Error")
