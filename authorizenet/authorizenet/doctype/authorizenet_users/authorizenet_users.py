@@ -221,10 +221,10 @@ def test_user(customer_detail):
     														credit_card.update({"billing":Billing})
 													if(bool(Billing) and bool(bank_account)):
     														bank_account.update({"billing":Billing})
-													authorize.Configuration.configure(							
-															authorize.Environment.TEST if(if_sandbox)  else authorize.Environment.PRODUCTION,
-															api_login_id,
-															'84CtWqm73UP8Pg45'   
+													authorize.Configuration.configure(
+														authorize.Environment.TEST if(settings.sandbox)  else authorize.Environment.PRODUCTION,
+														settings.api_login_id,
+														settings.api_transaction_key
 													)
 													result_shipping={}
 													result_payment={}
