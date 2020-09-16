@@ -315,3 +315,12 @@ def test_authorizenet():
 
 	print(get_decrypted_password('AuthorizeNet Settings', 'AuthorizeNet Settings', 'api_transaction_key', False))
 	print(frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "api_login_id"))
+
+
+@frappe.whitelist()
+def save_customer_again():
+	authorizenet = frappe.db.sql(""" SELECT * FROM `tabAuthorizeNet Users` """, as_dict=1)
+	for i in authorizenet:
+		stored_payments = frappe.db.sql(""" SELECT * FROM `tabAuthorizeNet Stored Payment` WHERE parent=%s""", i.name)
+		if len(stored_payments) == 0:
+			print(i.name)
