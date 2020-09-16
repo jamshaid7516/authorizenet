@@ -163,7 +163,8 @@ class AuthorizeNetSettings(Document):
 		api_transaction_key= get_decrypted_password('Authorizenet Settings', 'Authorizenet Settings', 'api_transaction_key', False)
 		settings=frappe._dict({
 			"api_login_id": api_login_id,
-			"api_transaction_key":api_transaction_key
+			"api_transaction_key":api_transaction_key,
+			"sandbox": self.use_sandbox
 		})
 		return settings                                     
 

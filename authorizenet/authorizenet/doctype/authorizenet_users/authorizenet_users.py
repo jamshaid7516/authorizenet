@@ -58,10 +58,11 @@ def test_user(customer_detail):
 							addr_list={}
 							Shipping={}
 							Billing={}
-							api_login_id=frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "api_login_id")
-							if_sandbox=frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "use_sandbox")
-							api_transaction_key= get_decrypted_password('AuthorizeNet Settings', 'AuthorizeNet Settings', 'api_transaction_key', False)
-							if '__onload' in i:    							 
+							# api_login_id=frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "api_login_id")
+							# if_sandbox=frappe.get_single("AuthorizeNet Settings","AuthorizeNet Settings", "use_sandbox")
+							# api_transaction_key= get_decrypted_password('AuthorizeNet Settings', 'AuthorizeNet Settings', 'api_transaction_key', False)
+							settings = frappe.get_doc("AuthorizeNet Settings").get_settings()
+							if '__onload' in i:
 									addr_list=i['__onload']['addr_list']
 							if 'customer_name' in i:
 									customer_name=i['customer_name']
@@ -160,11 +161,12 @@ def test_user(customer_detail):
 												if(bool(bank_account)):
 														customer_info.update({"bank_account":bank_account})
 
-												authorize.Configuration.configure(							
-														authorize.Environment.TEST if(if_sandbox)  else authorize.Environment.PRODUCTION,
-														api_login_id,
-														api_transaction_key   
+												authorize.Configuration.configure(
+													authorize.Environment.TEST if settings.sandbox else authorize.Environment.PRODUCTION,
+													settings.api_login_id,
+													settings.api_transaction_key
 												)
+												#75Q8R7Jtmh5hc9ju
 												result = authorize.Customer.create(customer_info)
 												customer={
 														"customer_id":result.customer_id,
