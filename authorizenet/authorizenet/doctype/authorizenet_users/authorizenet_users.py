@@ -58,10 +58,9 @@ def test_user(customer_detail):
 							addr_list={}
 							Shipping={}
 							Billing={}
-							api_login_id=frappe.get_value("Authorizenet Settings","Authorizenet Settings", "api_login_id")
-							api_transaction_key=frappe.get_value("Authorizenet Settings","Authorizenet Settings", "api_transaction_key")
+							api_login_id=frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "api_login_id")
 							if_sandbox=frappe.get_value("Authorizenet Settings","Authorizenet Settings", "use_sandbox")	
-							api_transaction_key= get_decrypted_password('Authorizenet Settings', 'Authorizenet Settings', 'api_transaction_key', False)
+							api_transaction_key= get_decrypted_password('AuthorizeNet Settings', 'AuthorizeNet Settings', 'api_transaction_key', False)
 							if '__onload' in i:    							 
 									addr_list=i['__onload']['addr_list']
 							if 'customer_name' in i:
@@ -167,8 +166,6 @@ def test_user(customer_detail):
 														api_transaction_key   
 												)
 												result = authorize.Customer.create(customer_info)
-												print("RESUUUUUUULT")
-												print(result)
 												customer={
 														"customer_id":result.customer_id,
 														"status":"Completed",
