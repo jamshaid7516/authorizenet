@@ -314,3 +314,4 @@ def test_authorizenet():
 	from frappe.utils.password import get_decrypted_password
 
 	print(get_decrypted_password('AuthorizeNet Settings', 'AuthorizeNet Settings', 'api_transaction_key', False))
+	print(frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "api_login_id"))
