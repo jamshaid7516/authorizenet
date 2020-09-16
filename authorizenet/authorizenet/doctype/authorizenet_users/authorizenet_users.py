@@ -59,7 +59,7 @@ def test_user(customer_detail):
 							Shipping={}
 							Billing={}
 							api_login_id=frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "api_login_id")
-							if_sandbox=frappe.get_value("Authorizenet Settings","Authorizenet Settings", "use_sandbox")	
+							if_sandbox=frappe.get_value("AuthorizeNet Settings","AuthorizeNet Settings", "use_sandbox")
 							api_transaction_key= get_decrypted_password('AuthorizeNet Settings', 'AuthorizeNet Settings', 'api_transaction_key', False)
 							if '__onload' in i:    							 
 									addr_list=i['__onload']['addr_list']
