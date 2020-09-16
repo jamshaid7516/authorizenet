@@ -296,7 +296,7 @@ class AuthorizeNetSettings(Document):
 						
 					else:
 							print("AUTHORIIIIIZE NET iDDDDDDDDDDDDd")
-							print(authnet_user)
+							print(authnet_user.__dict__)
 							print(authnet_user.get("authorizenet_id"))
 							print(card_store_info)
 							print("AUTHORIIIIIZE NET iDDDDDDDDDDDDd")
