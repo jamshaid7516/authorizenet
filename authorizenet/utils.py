@@ -324,3 +324,23 @@ def save_customer_again():
 		stored_payments = frappe.db.sql(""" SELECT * FROM `tabAuthorizeNet Stored Payment` WHERE parent=%s""", i.name)
 		if len(stored_payments) == 0:
 			print(i.name)
+
+
+@frappe.whitelist()
+def parse_address(address):
+	import usaddress
+	import zipcodes
+	zipcode = ""
+	address_ = dict(usaddress.tag(address)[0])
+	print(address_)
+	print(address_['StateName'])
+	state = address_['StateName'].split(",")[0]
+	address_['state'] = state
+	print(address_['PlaceName'])
+
+	print(zipcodes.filter_by(city=address_['PlaceName']))
+	for i in zipcodes.filter_by(city=address_['PlaceName']):
+		if i['state'] == state:
+			zipcode = i['zip_code']
+			print(i)
+	return address_, zipcode

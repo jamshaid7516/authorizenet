@@ -1,2 +1,4 @@
 frappe
-py-authorize   
+py-authorize
+usaddress
+zipcodes
