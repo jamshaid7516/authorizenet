@@ -7,6 +7,7 @@ authorizenet/__init__.py
 authorizenet/hooks.py
 authorizenet/modules.txt
 authorizenet/patches.txt
+authorizenet/sales_order.py
 authorizenet/utils.py
 authorizenet.egg-info/PKG-INFO
 authorizenet.egg-info/SOURCES.txt
@@ -38,6 +39,9 @@ authorizenet/authorizenet/doctype/authorizenet_users/authorizenet_users.js
 authorizenet/authorizenet/doctype/authorizenet_users/authorizenet_users.json
 authorizenet/authorizenet/doctype/authorizenet_users/authorizenet_users.py
 authorizenet/authorizenet/doctype/authorizenet_users/test_authorizenet_users.py
+authorizenet/authorizenet/doctype/item_group_count/__init__.py
+authorizenet/authorizenet/doctype/item_group_count/item_group_count.json
+authorizenet/authorizenet/doctype/item_group_count/item_group_count.py
 authorizenet/config/__init__.py
 authorizenet/config/desktop.py
 authorizenet/config/docs.py
